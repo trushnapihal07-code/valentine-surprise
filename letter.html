@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter For You 💌</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff0f3, #ffe5ec);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* changed */
+  font-family: 'Georgia', serif;
+}
+
+
+.letter {
+  background: #fffdf7;
+  width: 90%;
+  max-width: 600px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  position: relative;
+  animation: fadeIn 2s ease forwards;
+  line-height: 1.8;
+  max-height: none;
+overflow: visible;
+
+}
+
+.letter:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: #ff8fab;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.letter {
+  background: #fffdf7;
+  backdrop-filter: blur(5px);
+  transition: transform 0.5s ease;
+}
+
+.letter:hover {
+  transform: scale(1.02);
+}
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #b3003c;
+}
+
+.signature {
+  margin-top: 30px;
+  font-style: italic;
+  text-align: right;
+  font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="letter">
+  <h2>💌My Love<br>
+ My Dearest Ram Ji</h2>
+
+
+  <p>
+  When I look at you, I don’t just see the man I love…
+  I see someone I deeply care for, someone I protect in my prayers,
+  someone I feel proud of every single day.
+  </p>
+
+  <p>
+  Life isn’t always easy. We’ve both seen days filled with smiles
+  and days heavy with silence. We’ve had moments where everything
+  felt perfect… and moments where things felt uncertain.
+  But through every up and every down, one thing in my heart
+  has never changed — my love for you.
+  </p>
+
+  <p>
+  I know you don’t always say what you’re feeling.
+  Sometimes you carry your worries quietly.
+  In those moments, I wish you could see yourself the way I see you —
+  strong, capable, kind, and full of so much potential.
+  </p>
+
+  <p>
+  I am so proud of you.
+  Proud of your efforts.
+  Proud of your growth.
+  Proud of the way you keep going even when things get hard.
+  </p>
+
+  <p>
+  Even on the days when you doubt yourself,
+  please remember there is someone here
+  who believes in you completely.
+  </p>
+
+  <p>
+  My love is not just about the happy days.
+  It’s about standing beside you when you’re tired,
+  holding your hand when you feel lost,
+  and reminding you of your strength when you forget it.
+  </p>
+
+  <p>
+  No matter what happens — success or failure,
+  smiles or tears — I will stay by your side.
+  Not because everything is perfect,
+  but because you are worth choosing, again and again.
+  </p>
+
+  <p>
+  I want to be your peace when the world feels loud.
+  Your comfort when your heart feels heavy.
+  Your safe place when you need to rest.
+  </p>
+
+  <p>
+  You don’t have to be strong all the time.
+  You don’t have to have everything figured out.
+  With me, you can just be you.
+  </p>
+
+  <p>
+  If forever exists,
+  I want it with you.
+  </p>
+
+  <div class="signature">
+    Forever yours,<br>
+    Till my last breath ❤️
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+emailjs.init("YOUR_PUBLIC_KEY");
+
+window.onload = function() {
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    message: "He opened the special letter page 💌❤️",
+    time: new Date().toLocaleString()
+  });
+};
+</script>
+
+</body>
+</html>
