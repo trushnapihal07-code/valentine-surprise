@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ram Ji ❤️ My Forever</title>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<style>
+:root {
+  --primary: #ff4d6d;
+  --secondary: #ff8fab;
+  --bg1: #ffccd5;
+  --bg2: #fff0f3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.container {
+  z-index: 2;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #b3003c;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#yesBtn {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.7);
+}
+
+#yesBtn:hover {
+  background-color: #e6004c;
+  transform: scale(1.15);
+}
+
+#noBtn {
+  background-color: var(--secondary);
+  color: white;
+  position: relative;
+}
+
+#celebration {
+  font-size: 2rem;
+  color: #b3003c;
+  margin-top: 2rem;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.show {
+  opacity: 1 !important;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 6s infinite ease-in;
+  opacity: 0.6;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) scale(1); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+}
+
+#letter {
+  display: none;
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Ram Ji ❤️</h1>
+
+  <div class="main-text">
+    Every heartbeat of mine whispers your name…  
+    Every dream I have somehow leads back to you. 💫  
+    <br><br>
+  
+    From the moment you walked into my life, everything changed.  
+    I don’t just want you for today…  
+    I want you beside me in every tomorrow.  
+    <br><br>
+    Will you be my Valentine — not just this year,  
+    but till my last breath? 💞
+  </p>
+  </div>
+
+  <button id="yesBtn">Yes, Always 💖</button>
+  <button id="noBtn">No 😢</button>
+
+  <div id="celebration">
+    You chose me… and I will choose you — every single day ❤️🥺✨
+  </div>
+
+  <div id="letter">
+    <h3>💌 A Letter From My Heart</h3>
+    <p>
+      My Dearest Ram Ji,<br><br>
+
+      You walked into my life so quietly,  
+      yet you became my loudest happiness. 🌸  
+
+      You are my comfort on hard days,  
+      my smile without reason,  
+      and my peace in chaos.  
+
+      I don’t promise a perfect world,  
+      but I promise a heart that will always beat for you.  
+
+      If love had a name, it would sound like yours.  
+
+      Forever yours,  
+      till my last breath… ❤️
+    </p>
+  </div>
+</div>
+
+<script>
+emailjs.init("YOUR_PUBLIC_KEY"); // replace with your EmailJS public key
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const celebration = document.getElementById("celebration");
+
+// YES BUTTON CLICK
+yesBtn.addEventListener("click", function() {
+
+  celebration.classList.add("show");
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+
+  startConfetti();
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    message: "Ram Ji clicked YES 💖",
+    time: new Date().toLocaleString()
+  });
+
+  // Redirect after 4 seconds
+  setTimeout(() => {
+    window.location.href = "special.html";
+  }, 1500);
+
+});
+
+
+// NO BUTTON RUN AWAY EFFECT
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.position = "absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+// Floating Hearts
+function createHearts() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHearts, 400);
+
+// CONFETTI
+const canvas = document.createElement("canvas");
+canvas.id = "confetti";
+document.body.appendChild(canvas);
+
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let confetti = [];
+
+function startConfetti() {
+  for (let i = 0; i < 150; i++) {
+    confetti.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 6 + 2,
+      d: Math.random() * 50
+    });
+  }
+  animateConfetti();
+}
+
+function animateConfetti() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#ff4d6d";
+
+  confetti.forEach((c, i) => {
+    ctx.beginPath();
+    ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+    ctx.fill();
+
+    c.y += Math.cos(c.d) + 1;
+    c.x += Math.sin(c.d);
+
+    if (c.y > canvas.height) confetti[i].y = -10;
+  });
+
+  requestAnimationFrame(animateConfetti);
+}
+</script>
+
+
+</body>
+</html>
